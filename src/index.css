@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Rajasthani Color Palette */
+    --rajasthani-saffron: 32 95% 58%;
+    --rajasthani-deep-orange: 16 84% 52%;
+    --rajasthani-golden: 43 96% 56%;
+    --rajasthani-royal-red: 0 72% 45%;
+    --rajasthani-crimson: 348 83% 47%;
+    --rajasthani-desert-sand: 37 36% 85%;
+    --rajasthani-warm-beige: 36 39% 92%;
+    --rajasthani-turquoise: 174 72% 56%;
+    --rajasthani-emerald: 160 84% 39%;
+    --rajasthani-deep-blue: 221 83% 53%;
+    --rajasthani-indigo: 243 75% 59%;
+    --rajasthani-purple: 262 83% 58%;
+    --rajasthani-magenta: 300 76% 60%;
+
+    /* Design System */
+    --background: var(--rajasthani-warm-beige);
+    --foreground: 20 14% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: var(--foreground);
+    --popover: var(--card);
+    --popover-foreground: var(--card-foreground);
+    --primary: var(--rajasthani-royal-red);
+    --primary-foreground: 0 0% 98%;
+    --secondary: var(--rajasthani-golden);
+    --secondary-foreground: var(--foreground);
+    --muted: var(--rajasthani-desert-sand);
+    --muted-foreground: 60 4% 46%;
+    --accent: var(--rajasthani-turquoise);
+    --accent-foreground: var(--foreground);
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 20 6% 90%;
+    --input: var(--border);
+    --ring: var(--primary);
+    --radius: 0.75rem;
+    --chart-1: var(--rajasthani-saffron);
+    --chart-2: var(--rajasthani-turquoise);
+    --chart-3: var(--rajasthani-purple);
+    --chart-4: var(--rajasthani-emerald);
+    --chart-5: var(--rajasthani-crimson);
+
+    /* Gradients */
+    --gradient-royal: linear-gradient(135deg, hsl(var(--rajasthani-royal-red)), hsl(var(--rajasthani-crimson)));
+    --gradient-golden: linear-gradient(135deg, hsl(var(--rajasthani-saffron)), hsl(var(--rajasthani-golden)));
+    --gradient-desert: linear-gradient(180deg, hsl(var(--rajasthani-warm-beige)), hsl(var(--rajasthani-desert-sand)));
+    --gradient-jewel: linear-gradient(135deg, hsl(var(--rajasthani-turquoise)), hsl(var(--rajasthani-emerald)));
+    --gradient-sunset: linear-gradient(135deg, hsl(var(--rajasthani-deep-orange)), hsl(var(--rajasthani-saffron)));
+
+    /* Shadows */
+    --shadow-royal: 0 10px 40px -10px hsl(var(--rajasthani-royal-red) / 0.3);
+    --shadow-golden: 0 8px 32px -8px hsl(var(--rajasthani-golden) / 0.4);
+    --shadow-soft: 0 4px 20px -4px hsl(20 14% 8% / 0.1);
+  }
+
+  .dark {
+    --background: 20 14% 8%;
+    --foreground: 0 0% 95%;
+    --card: 24 10% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: var(--card);
+    --popover-foreground: var(--card-foreground);
+    --primary: var(--rajasthani-saffron);
+    --primary-foreground: 20 14% 8%;
+    --secondary: var(--rajasthani-deep-blue);
+    --secondary-foreground: 0 0% 95%;
+    --muted: 12 6% 15%;
+    --muted-foreground: 24 5% 64%;
+    --accent: var(--rajasthani-turquoise);
+    --accent-foreground: var(--foreground);
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 12 6% 15%;
+    --input: var(--border);
+    --ring: var(--primary);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+}
+
+@layer components {
+  /* Rajasthani Patterns */
+  .rajasthani-pattern {
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(var(--rajasthani-golden) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, hsl(var(--rajasthani-royal-red) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 25%, hsl(var(--rajasthani-turquoise) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 25% 75%, hsl(var(--rajasthani-saffron) / 0.1) 0%, transparent 50%);
+  }
+
+  /* Typography */
+  .hero-title {
+    @apply font-royal text-6xl lg:text-8xl font-bold;
+    background: var(--gradient-royal);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-title {
+    @apply font-royal text-3xl lg:text-4xl font-bold text-primary;
+  }
+
+  .gradient-text {
+    background: var(--gradient-golden);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Interactive Elements */
+  .hover-lift {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  }
+
+  .royal-button {
+    @apply bg-primary text-primary-foreground shadow-royal hover:shadow-golden transition-all duration-300;
+  }
+
+  .golden-button {
+    @apply bg-secondary text-foreground shadow-golden hover:shadow-royal transition-all duration-300;
+  }
+
+  /* Cards */
+  .rajasthani-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/20 rounded-xl shadow-soft hover:shadow-royal;
+  }
+
+  /* Navigation */
+  .nav-glass {
+    @apply bg-card/95 backdrop-blur-md border-b border-border/20;
+  }
+}
+
+@layer utilities {
+  .mobile-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .content-width {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .responsive-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6;
+  }
+
+  .mobile-text {
+    @apply text-xs sm:text-sm md:text-base lg:text-lg;
+  }
+
+  /* Layout fixes */
+  .main-content {
+    @apply pt-16 lg:pt-20;
+  }
+
+  .section-spacing {
+    @apply py-8 lg:py-12;
+  }
+
+  .content-section {
+    @apply pt-16 lg:pt-20;
+  }
+
+  .text-visible {
+    @apply text-foreground relative z-10;
+  }
+
+  /* Performance optimizations */
+  .will-change-transform { will-change: transform; }
+  .will-change-auto { will-change: auto; }
+  .gpu-acceleration { transform: translateZ(0); }
+  
+  /* Animation delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-500 { animation-delay: 500ms; }
+
+  /* Text shadow utilities */
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  }
+}
